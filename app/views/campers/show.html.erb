@@ -1,0 +1,20 @@
+<h1>Camper: <%= @camper.name %></h1>
+<h3>Age: <%= @camper.age %></h3>
+<br>
+<h3>Activities:</h3>
+<ul>
+    <% if @camper.activities.length == 0 %>
+       <li>Camper prefers to hide than participate. Check the library.</li>
+    <% else %>
+        <% @camper.activities.each do |activity| %>
+          <li><%= link_to activity.name, activity_path %> </li>
+        <% end %>
+    <% end %>
+        
+
+</ul>
+       <%= button_to "Signup for Activities", new_signup_path, method: :get %>
+<br>
+<br>
+
+<%= link_to 'Back to Camper Index', campers_path %>

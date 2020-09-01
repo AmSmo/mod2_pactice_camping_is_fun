@@ -1,0 +1,18 @@
+<% if flash[:errors] %>
+    <h3>We've encountered the following issues with enrolling you:</h3>
+    <ul>
+        <% flash[:errors].each do |msg|%>
+           <li> <%= msg %> </li>
+        <% end%>
+    </ul>
+<% end %>
+
+<%= form_for @camper do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <br>
+    <%= f.submit %>
+<% end%>
